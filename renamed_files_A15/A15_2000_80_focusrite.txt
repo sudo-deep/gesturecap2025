@@ -2,7 +2,7 @@
 # Device: A15
 # Baud Rate: 115200
 # Method: raw
-# Frequency: 200
+# Frequency: 2000
 # Threshold: 80
 # PD Delay: 5
 # Output Method: focusrite
