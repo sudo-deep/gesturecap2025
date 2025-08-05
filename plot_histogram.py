@@ -1,11 +1,12 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import os
 
 # log_file = "latency_logs/delay_delta5_freq200_th11_aux.txt"
 # log_file = "latency_logs/delay_delta5_freq200_th60_aux.txt"
 # log_file = "latency_logs/delay_raw_freq200_th200_aux.txt"
-log_file = "renamed_files_A15/A15_200_90_aux_speaker.txt"
-# log_file = "latency_logs/delay_raw_freq200_th80_aux.txt"
+# log_file = "renamed_files_A15/A15_2000_90_aux_speaker.txt"
+log_file = "renamed_files/crockett_200_80_aux_speaker.txt"
 
 # Read and extract latency values
 latencies = []
@@ -70,4 +71,15 @@ plt.ylabel("Frequency")
 plt.legend()
 plt.grid(True)
 plt.tight_layout()
+
+# Save figure
+output_folder = "latency_plots"
+os.makedirs(output_folder, exist_ok=True)
+base_name = os.path.basename(log_file)
+plot_filename = os.path.splitext(base_name)[0] + "_hist.png"
+plot_path = os.path.join(output_folder, plot_filename)
+plt.savefig(plot_path)
+print(f"Histogram saved to: {plot_path}")
+
+# Show plot
 plt.show()

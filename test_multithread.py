@@ -109,7 +109,7 @@ def main_loop():
             t_start = time.time()
             
             # Get latest frame from buffer (non-blocking)
-            frame, original_ts, capture_time = frame_capture.get_latest_frame()
+            frame, _, capture_time = frame_capture.get_latest_frame()
             
             if frame is None:
                 # No frame available, continue
@@ -124,6 +124,13 @@ def main_loop():
             hands = detector.detect_hand_pose(frame)
             t_proc_end = time.time()
             
+            # Timestamp at end
+            t_end = time.time()
+            
+            # Compute latencies
+            latency_total = t_end - t_start
+            latency_processing = t_proc_end - t_proc_start
+
             tapped = False
             if hands:
                 for hand in hands:
@@ -150,6 +157,7 @@ def main_loop():
             t_end = time.time()
             
             # Compute latencies
+            frame_age = t_end - capture_time
             latency_total = t_end - t_start
             latency_processing = t_proc_end - t_proc_start
             

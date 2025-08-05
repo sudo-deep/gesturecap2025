@@ -5,8 +5,8 @@
 # Frequency: 200
 # Threshold: 80
 # Pd Delay: 3
-# Output Method: aux_apeaker
-
+# Output Method: aux_speaker
+    
 1753303973.0731757, 29 ms
 1753303974.0223167, 13 ms
 1753303975.007239, 12 ms
