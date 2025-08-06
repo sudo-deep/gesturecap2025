@@ -30,6 +30,8 @@ def main_loop():
     # Setup camera, OSC, detector
     cam = Flircam()
     cam.start()
+    time.sleep(1)
+
     osc_ip, osc_port = '127.0.0.1', 11111
     # osc_ip, osc_port = '192.168.2.2', 11111
     client = udp_client.SimpleUDPClient(osc_ip, osc_port)
@@ -51,7 +53,8 @@ def main_loop():
             t_start = time.time()
 
             # Capture frame
-            frame, ts = cam.read_frame()
+            # frame, ts = cam.read_frame()
+            frame, ts = cam.get_frame()
             if not frame.any():
                 break   
 
@@ -89,12 +92,12 @@ def main_loop():
             latency_total = t_end - t_start
             latency_processing = t_proc_end - t_proc_start
 
-            # # Log to CSV
-            # csv_writer.writerow([t_start, latency_total, latency_processing])
-            # csv_file.flush()
+            # Log to CSV
+            csv_writer.writerow([t_start, latency_total, latency_processing])
+            csv_file.flush()
 
-            # # Print loop duration
-            # print(f"Loop time: {latency_total:.4f}s (processing: {latency_processing:.4f}s)")
+            # Print loop duration
+            print(f"Loop time: {latency_total:.4f}s (processing: {latency_processing:.4f}s)")
 
     except KeyboardInterrupt:
         print("User Interrupt")
