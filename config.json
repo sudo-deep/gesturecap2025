@@ -1,9 +1,9 @@
 {
-    "device": "A15",
+    "device": "A15_gpu",
     "baud_rate": 115200,
-    "method": "raw",
-    "frequency": "200",
-    "threshold": "80",
-    "pd_delay": "3",
-    "output_method": "focusrite"
+    "method": "test",
+    "frequency": "test",
+    "threshold": "test",
+    "pd_delay": "test",
+    "output_method": "test"
 }

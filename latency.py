@@ -92,12 +92,12 @@ def main_loop():
             latency_total = t_end - t_start
             latency_processing = t_proc_end - t_proc_start
 
-            # Log to CSV
-            csv_writer.writerow([t_start, latency_total, latency_processing])
-            csv_file.flush()
+            # # Log to CSV
+            # csv_writer.writerow([t_start, latency_total, latency_processing])
+            # csv_file.flush()
 
-            # Print loop duration
-            print(f"Loop time: {latency_total:.4f}s (processing: {latency_processing:.4f}s)")
+            # # Print loop duration
+            # print(f"Loop time: {latency_total:.4f}s (processing: {latency_processing:.4f}s)")
 
     except KeyboardInterrupt:
         print("User Interrupt")
