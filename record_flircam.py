@@ -24,7 +24,7 @@ def main():
     
     # Initialize hand pose detector and FLIR camera
     cam = Flircam()
-    cam.start()
+    # cam.start()
 
     # Configuration
     filename = "fixedfps_recording_1.avi"
@@ -34,7 +34,7 @@ def main():
     queue = Queue(maxsize=100)
     p = Process(target=writer, args=(queue, filename, fps, w, h))
     p.start()
-    frame, ts = cam.read_frame()
+    frame, ts, _ = cam.read_frame()
 
     recording = False
     recording_index = 1
@@ -46,7 +46,7 @@ def main():
     try:
         while True:
             # ret, frame = cap.read()
-            frame, ts = cam.read_frame()
+            frame, ts, _ = cam.read_frame()
             if not frame.any():
                 print("Failed to grab frame.")
                 break

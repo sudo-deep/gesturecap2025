@@ -101,6 +101,7 @@ def consumer(shm_name0, shm_name1, cur_idx, stop_event, ts_value,
     print(f"Using y_line={y_line}, threshold={threshold:.2f}px")
 
     osc_ip, osc_port = '127.0.0.1', 11111
+    # osc_ip, osc_port = '192.168.2.3', 5005
     client = udp_client.SimpleUDPClient(osc_ip, osc_port)
 
     detector = HandPoseDetector()

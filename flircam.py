@@ -148,8 +148,8 @@ class Flircam(VideoInput):
             
             chunk_data = frame_cam.GetChunkData()
             ts = chunk_data.GetTimestamp() / NS_PER_S
-            ts = frame_cam.GetTimeStamp()
-            ts = None
+            # ts = frame_cam.GetTimeStamp()
+            # ts = None
             time_2 = time.perf_counter()
             # print(ts)
             if frame_cam.IsIncomplete():

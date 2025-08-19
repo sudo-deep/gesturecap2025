@@ -5,7 +5,7 @@ import numpy as np
 # log_file = "latency_logs/delay_delta5_freq200_th60_aux.txt"
 # log_file = "latency_logs/delay_raw_freq200_th200_aux.txt"
 # log_file = "freezed_log_A15/delay_raw_freq200_th80_aux.txt"
-log_file = "latency_logs/delay_test_freqtest_thtest_test.txt"
+log_file = "latency_logs/delay_raw_freq200_th80_test.txt"
 
 # Read and extract latency values
 latencies = []
